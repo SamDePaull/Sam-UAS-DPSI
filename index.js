@@ -6,6 +6,7 @@ const Claim = require('./models/Claim');
 const authRoute = require('./routes/auth');
 const claimRoute = require('./routes/claims');
 
+console.log('Starting server...');
 const app = express();
 app.use(express.json());
 
@@ -18,4 +19,6 @@ sequelize.sync().then(() => {
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
+}).catch(err => {
+  console.error('Unable to connect to the database:', err);
 });
