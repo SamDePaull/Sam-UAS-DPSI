@@ -12,7 +12,7 @@ app.use(express.json());
 app.use('/api/auth', authRoute);
 app.use('/api/claims', claimRoute);
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync().then(() => {
   console.log('Database & tables created!');
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => {
