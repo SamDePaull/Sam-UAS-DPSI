@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const createError = require('http-errors');
+const createError = require('http-errors'); // Pastikan ini diinstall atau import jika diperlukan
 const sequelize = require('./config/database');
 const User = require('./models/User');
 const Claim = require('./models/Claim');
@@ -42,5 +42,4 @@ sequelize.sync({ force: false }) // force: false untuk menghindari overwrite dat
     console.error('Error synchronizing database:', err);
   });
 
-// Corrected export statement
 module.exports = app;
