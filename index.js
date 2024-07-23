@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const createError = require('http-errors'); // Pastikan ini diinstall atau import jika diperlukan
+const createError = require('http-errors');
 const sequelize = require('./config/database');
 const User = require('./models/User');
 const Claim = require('./models/Claim');
