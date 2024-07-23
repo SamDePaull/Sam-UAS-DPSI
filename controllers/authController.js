@@ -3,6 +3,9 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 exports.register = async (req, res) => {
+  const { name, email, password } = req.body;
+  try {
+    let user = await User.findOne({ where: { email } });exports.register = async (req, res) => {
   const { name, email, password, role } = req.body; // tambahkan role
   try {
     let user = await User.findOne({ where: { email } });
@@ -36,7 +39,6 @@ exports.register = async (req, res) => {
     res.status(500).send('Server error');
   }
 };
-
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
